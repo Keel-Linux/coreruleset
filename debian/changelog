@@ -1,0 +1,13 @@
+coreruleset (4.25.1-0keel1) trixie; urgency=medium
+
+  * First Keel package (handbook decision 0041, first implementation,
+    step 5): the OWASP Core Rule Set version 4, LTS line, for Coraza.
+    Debian has only CRS 3.3 (modsecurity-crs, 3.3.7 in trixie and 3.3.9
+    in forky and sid), which Coraza does not target, and no package of
+    CRS 4.
+  * Rules and data in /usr/share/coreruleset/rules; crs-setup.conf, the
+    two exclusion files and the plugin stubs as conffiles in
+    /etc/coreruleset, as modsecurity-crs does in /etc/modsecurity/crs;
+    /usr/share/coreruleset/coreruleset.load includes them in CRS's order.
+
+ -- Marcos Mendez <mendez.foto@gmail.com>  Thu, 01 Oct 2026 12:00:00 +0000

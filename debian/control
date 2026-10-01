@@ -1,0 +1,31 @@
+Source: coreruleset
+Section: httpd
+Priority: optional
+Maintainer: KeelLinux maintainers <admin@keellinux.org>
+Uploaders: Marcos Mendez <mendez.foto@gmail.com>
+Build-Depends:
+ debhelper-compat (= 13),
+Standards-Version: 4.7.2
+Homepage: https://coreruleset.org
+Rules-Requires-Root: no
+Vcs-Git: https://github.com/Keel-Linux/coreruleset.git -b keel/trixie
+Vcs-Browser: https://github.com/Keel-Linux/coreruleset
+
+Package: coreruleset
+Architecture: all
+Multi-Arch: foreign
+Depends:
+ ${misc:Depends},
+Suggests:
+ libnginx-mod-http-coraza,
+Description: OWASP Core Rule Set 4 for ModSecurity-compatible WAFs
+ The OWASP Core Rule Set (CRS) is a set of generic attack detection rules
+ for web application firewalls that read ModSecurity's rule language:
+ SQL injection, cross-site scripting, local file inclusion, remote code
+ execution and other common attacks, scored by anomaly.
+ .
+ This package holds CRS version 4. The rules are in
+ /usr/share/coreruleset/rules, the local settings in /etc/coreruleset, and
+ /usr/share/coreruleset/coreruleset.load includes both in CRS's order, for
+ example from Coraza's Nginx module. Debian's modsecurity-crs holds the
+ older CRS 3.3 for ModSecurity; both can be installed together.

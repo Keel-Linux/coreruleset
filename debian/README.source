@@ -1,0 +1,16 @@
+coreruleset source for Keel Linux
+=================================
+
+The repository follows DEP-14 as git-buildpackage repositories on salsa
+do: upstream/latest holds the imported upstream tarballs, pristine-tar
+their deltas, and keel/trixie this package.
+
+The orig tarball is upstream's GitHub release archive of the LTS line:
+
+  https://github.com/coreruleset/coreruleset/archive/refs/tags/v4.25.1.tar.gz
+  coreruleset_4.25.1.orig.tar.gz
+  sha256 0539e66e7627fe71c160a644d8fb7ab6e450d53c9de208be5f95a35c70e1a154
+
+The regular expressions in rules/ are generated upstream from
+regex-assembly/ by crs-toolchain, which is not in Debian; the package
+ships the generated rules that upstream releases and tests.

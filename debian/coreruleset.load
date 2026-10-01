@@ -1,0 +1,14 @@
+# OWASP CRS 4, in the order CRS requires (INSTALL.md upstream). Include
+# this file after the engine's own settings, for example from Coraza:
+#
+#   coraza_rules 'SecRuleEngine On';
+#   coraza_rules_file /usr/share/coreruleset/coreruleset.load;
+#
+# Local changes go in /etc/coreruleset, never here.
+Include /etc/coreruleset/crs-setup.conf
+Include /etc/coreruleset/plugins/*-config.conf
+Include /etc/coreruleset/plugins/*-before.conf
+Include /etc/coreruleset/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf
+Include /usr/share/coreruleset/rules/*.conf
+Include /etc/coreruleset/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf
+Include /etc/coreruleset/plugins/*-after.conf

@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+
+CRS_SHARE = debian/coreruleset/usr/share/coreruleset
+CRS_ETC = debian/coreruleset/etc/coreruleset
+
+%:
+	dh $@
+
+# Nothing to build: the rules are text. The regular expressions in rules/
+# are generated upstream from regex-assembly/ by crs-toolchain, which is
+# not in Debian; the generated rules are what upstream releases and tests.
+override_dh_auto_build:
+
+override_dh_auto_install:
+	install -d $(CRS_SHARE)/rules $(CRS_ETC)/plugins
+	install -m 0644 rules/*.conf rules/*.data $(CRS_SHARE)/rules/
+	install -m 0644 debian/coreruleset.load $(CRS_SHARE)/coreruleset.load
+	install -m 0644 crs-setup.conf.example $(CRS_ETC)/crs-setup.conf
+	install -m 0644 rules/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf.example \
+		$(CRS_ETC)/REQUEST-900-EXCLUSION-RULES-BEFORE-CRS.conf
+	install -m 0644 rules/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf.example \
+		$(CRS_ETC)/RESPONSE-999-EXCLUSION-RULES-AFTER-CRS.conf
+	install -m 0644 plugins/empty-*.conf $(CRS_ETC)/plugins/
+
+override_dh_installdocs:
+	dh_installdocs README.md KNOWN_BUGS.md SECURITY.md
+
+override_dh_installchangelogs:
+	dh_installchangelogs CHANGES.md
