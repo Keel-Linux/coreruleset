@@ -1,0 +1,8 @@
+# Security scan baseline (keel-linux/.github, security-scan.yml): findings
+# that were read and are not a risk, one per line, the fingerprint and why.
+semgrep:bash.lang.best-practice.useless-cat.useless-cat:util/php-dictionary-gen/php-dictionary-creator.sh:7e62555e4944 style only: useless cat in a pipeline
+semgrep:bash.lang.best-practice.useless-cat.useless-cat:util/php-dictionary-gen/php-dictionary-creator.sh:86547fbb70e6 style only: useless cat in a pipeline
+semgrep:bash.lang.best-practice.useless-cat.useless-cat:util/php-dictionary-gen/php-dictionary-creator.sh:9acc3fca24d1 style only: useless cat in a pipeline
+semgrep:bash.lang.security.ifs-tampering.ifs-tampering:util/php-dictionary-gen/php-dictionary-creator.sh:fdbe2dc66bc3 upstream maintainer tool, IFS=$'\n\t' is the usual strict mode, not attacker-controlled; not shipped in the package
+shellcheck:SC2046:util/php-dictionary-gen/php-dictionary-creator.sh:aa779a9bbc62 shell lint, not a security risk: upstream maintainer tool, unquoted substitution over files it generates itself
+shellcheck:SC2046:util/php-dictionary-gen/php-dictionary-creator.sh:ea41cfcd1687 shell lint, not a security risk: upstream maintainer tool, unquoted substitution over files it generates itself
