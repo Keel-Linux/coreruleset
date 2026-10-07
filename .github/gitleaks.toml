@@ -1,0 +1,12 @@
+# gitleaks (keel-linux/.github, security-scan.yml): the default rules, less
+# the upstream CRS regression tests, which are attack payloads on purpose and
+# carry example tokens (the jwt.io sample JWT, made-up session and OAuth
+# tokens). A new fixture is added here by path once it has been read.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "CRS regression test payloads, fake tokens on purpose"
+paths = [
+  '''^tests/regression/tests/.+\.yaml$''',
+]
